@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub package.json Peek",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "See outdated npm dependencies directly in GitHub's package.json view.",
   "background": {
     "service_worker": "background.js"

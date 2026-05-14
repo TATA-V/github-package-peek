@@ -165,6 +165,15 @@ async function run(): Promise<void> {
 
 void run();
 
-// GitHub SPA navigation events
-document.addEventListener('turbo:load', () => { void run(); });
-document.addEventListener('turbo:render', () => { void run(); });
+// GitHub SPA navigation — debounce to prevent concurrent runs when multiple events fire
+let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+function scheduleRun() {
+  if (debounceTimer) clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => { void run(); }, 100);
+}
+
+// turbo:load / turbo:render for same-repo navigation
+// soft-nav:end for cross-repo navigation (GitHub's own soft navigation system)
+document.addEventListener('turbo:load', scheduleRun);
+document.addEventListener('turbo:render', scheduleRun);
+document.addEventListener('soft-nav:end', scheduleRun);
