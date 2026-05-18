@@ -25,13 +25,6 @@ Browsing any repository on GitHub, you'll know at a glance which packages need u
 
 Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/github-packagejson-peek/mkiiomdckffehnigieeflknajphjfghc?utm_source=item-share-cb)
 
-Or load manually:
-
-1. Clone this repository
-2. Open Chrome and go to `chrome://extensions`
-3. Enable **Developer mode** (top right)
-4. Click **Load unpacked** and select the cloned folder
-
 ## Usage
 
 1. Navigate to any `package.json` file on GitHub
